@@ -34,16 +34,19 @@ def test_buy_product():
     
     driver.get('https://www.vsempodarok.com')
 
- 
+    #Авторизация
     lp = Login_page(driver,action)
     lp.Authorization('x','x')
 
+    #Применение фильтров
     fp = CFilter_page(driver,action)
     fp.install_filter()
 
+    #Работа с товаром , добавление в корзину
     pp = CProduct_page(driver,action)
     pp.add_to_cart()
-
+    
+    #Работа в корзине , оформление заказа
     cp = CCart_page(driver,action)
     cp.go_to_order()
 
